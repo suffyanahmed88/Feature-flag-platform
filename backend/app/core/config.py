@@ -1,0 +1,13 @@
+from functools import lru_cache
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+class Settings(BaseSettings):
+    database_url: str = "sqlite:///./featureflags.sqlite3"
+    jwt_secret: str = "change-me-in-production"
+    jwt_expire_minutes: int = 1440
+    cors_origins: str = "http://localhost:3000"
+    model_config = SettingsConfigDict(env_file="../.env", extra="ignore")
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()

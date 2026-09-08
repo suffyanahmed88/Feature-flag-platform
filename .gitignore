@@ -10,6 +10,7 @@
 
 # next.js
 /.next/
+frontend/.next/
 /out/
 
 # production
@@ -27,6 +28,12 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+backend/.venv/
+backend/__pycache__/
+backend/.pytest_cache/
+frontend/node_modules/
+sdk-python/.venv/
+*.sqlite3
 
 # vercel
 .vercel
